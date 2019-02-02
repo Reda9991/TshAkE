@@ -2963,6 +2963,58 @@ send(msg.chat_id_, msg.id_, 1, "☑┇ تم تنزيل الشخص من جميع 
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
+if text:match("^رفع ادمن بالكروب (%d+)$") and  is_creatorbasic(msg) then
+local apmd = {string.match(text, "^(رفع ادمن بالكروب) (%d+)$")}
+HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..apmd[2].."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=false")
+tsX000(apmd[2],msg,'※ تم رفعة ادمن   في الكروب ✓ 👨')
+end
+if text:match("^رفع ادمن بالكروب$")  and is_creatorbasic(msg) and msg.reply_to_message_id_ then
+function promote_by_reply(extra, result, success)
+HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=false")
+tsX000("prore",msg,'※ تم رفعة ادمن   في الكروب ✓ 👨')
+end
+getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
+end
+if text:match("^رفع ادمن بالكروب @(.*)$") and is_creatorbasic(msg) then
+local apmd = {string.match(text, "^(رفع ادمن بالكروب) @(.*)$")}
+function promote_by_username(extra, result, success)
+if result.id_ then
+HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=false")
+texts = '💁🏻‍♂️※ العضو ✓['..result.title_..'](t.me/'..(apmd[2] or 'tshaketeam')..')\n※ تم رفعة ادمن   في الكروب ✓ 👨🏻‍🚒'
+else
+texts = '✖┇خطاء'
+end
+send(msg.chat_id_, msg.id_, 1, texts, 1, 'md')
+end
+resolve_username(apmd[2],promote_by_username)
+end
+--------------------------------------editby@riida
+if text:match("^تنزيل ادمن بالكروب (%d+)$") and  is_creatorbasic(msg) then
+local apmd = {string.match(text, "^(تنزيل ادمن بالكروب) (%d+)$")}
+HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..apmd[2].."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+tsX000(apmd[2],msg,'※ تم تنزيله ادمن   في الكروب ✓ 👨')
+end
+if text:match("^تنزيل ادمن بالكروب$")  and is_creatorbasic(msg) and msg.reply_to_message_id_ then
+function promote_by_reply(extra, result, success)
+HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+tsX000("prore",msg,'※ تم تنزيله ادمن   في الكروب ✓ 👨')
+end
+getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
+end
+if text:match("^تنزيل ادمن بالكروب @(.*)$") and is_creatorbasic(msg) then
+local apmd = {string.match(text, "^(تنزيل ادمن بالكروب) @(.*)$")}
+function promote_by_username(extra, result, success)
+if result.id_ then
+HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+texts = '💁🏻‍♂️※ العضو ✓['..result.title_..'](t.me/'..(apmd[2] or 'tshaketeam')..')\n※ تم تنزيله ادمن   في الكروب ✓ 👨🏻‍🚒'
+else
+texts = '✖┇خطاء'
+end
+send(msg.chat_id_, msg.id_, 1, texts, 1, 'md')
+end
+resolve_username(apmd[2],promote_by_username)
+end
+-------------------------------------
 if text:match("^رفع مدير$") and (is_creator(msg) or is_creatorbasic(msg)) and msg.reply_to_message_id_ then
 local res = (keko_get_user(msg.sender_user_id_) or "true")
 if res then
