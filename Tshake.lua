@@ -5723,7 +5723,7 @@ local text =  [[
 
 🎖┇م4 ~⪼ لعرض اوامر المطورين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-‏📡┇Ch ~⪼ @botlua
+‏📡┇Made by @riida ~⪼ 
 ]]
 send(msg.chat_id_, msg.id_, 1, (help or text), 1, 'html')
 end
@@ -5775,7 +5775,7 @@ local text =  [[
 🔐┇التكرار
 🔐┇الكلايش
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇Ch ~⪼ @botlua
+📡┇Ch ~⪼ 
 ]]
 send(msg.chat_id_, msg.id_, 1, (h1 or text), 1, 'html')
 end
@@ -5849,7 +5849,7 @@ local text =  [[
 📮┇الصوره
 📮┇الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇Ch ~⪼ @botlua
+📡┇made bot by @riida
 ]]
 send(msg.chat_id_, msg.id_, 1, (h2 or text), 1, 'html')
 end
@@ -5915,7 +5915,7 @@ local text =  [[
 🚸┇تفعيل/تعطيل الطرد/الحظر
 💭┇اضف/حذف امر + اسم الامر
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇Ch ~⪼ @botlua
+📡┇Made bot by @riida
 ]]
 send(msg.chat_id_, msg.id_, 1, (h3 or text), 1, 'html')
 end
@@ -5996,13 +5996,16 @@ local text =  [[
 🗯┇تغير رابط الانلاين + الرابط
 🗯┇تفعيل/تعطيل الانلاين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-‏📡┇Ch ~⪼ @botlua
+‏📡┇Made bot by @riida
 
 ]]
 send(msg.chat_id_, msg.id_, 1, (h4 or text), 1, 'html')
 end
 if text:match("^اصدار$") or text:match("^الاصدار$") or text:match("^السورس$") or text:match("^سورس$") then
 local text =  [[
+ 🦁┇<a href="https://telegram.me/riida">The bot was made by Ridha.</a>
+ 🦁┇<a href="https://telegram.me/city5_bot">Twasil</a>
+     
 👋┇اهلا بك في سورس تشاكي
 
 🌐┇<strong>TshAkE TEAM</strong>
