@@ -3014,6 +3014,49 @@ send(msg.chat_id_, msg.id_, 1, texts, 1, 'md')
 end
 resolve_username(apmd[2],promote_by_username)
 end
+if (text and text == "رتبتي") then
+
+if is_sudo(msg) then
+
+t = database:get("tshake:name_sudo"..bot_id..msg.chat_id_)  or '.مطور البوت - '
+
+elseif is_creatorbasic(msg) then
+
+t = database:get("tshake:name_cre"..bot_id..msg.chat_id_) or '.منشئ اساسي -'
+
+elseif (database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_) and database:get("tshake:all_if:"..database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_) ..bot_id..msg.chat_id_)) then 
+
+t = database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_)
+
+elseif is_creator(msg) then
+
+t = database:get("tshake:name_cre"..bot_id..msg.chat_id_) or '.منشئ -'
+
+elseif (database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_) and database:get("tshake:all_if:"..database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_) ..bot_id..msg.chat_id_)) then 
+
+t = database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_)
+
+elseif is_owner(msg) then
+
+t = database:get("tshake:name_own"..bot_id..msg.chat_id_) or '.مدير - '
+
+elseif is_mod(msg) then
+
+t = database:get("tshake:name_adm"..bot_id..msg.chat_id_) or ' .ادمن - '
+
+elseif is_vip(msg) then
+
+t = database:get("tshake:name_vipp"..bot_id..msg.chat_id_) or '.عضو مميز -'
+
+else
+
+t = database:get("tshake:name_nk"..bot_id..msg.chat_id_) or '.عضو فقط -' 
+
+end
+
+send(msg.chat_id_, msg.id_, 1,"رتبتك >> "..t.."", 1, 'md')
+
+end
 -------------------------------------
 if text:match("^رفع مدير$") and (is_creator(msg) or is_creatorbasic(msg)) and msg.reply_to_message_id_ then
 local res = (keko_get_user(msg.sender_user_id_) or "true")
