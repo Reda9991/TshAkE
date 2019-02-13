@@ -2966,12 +2966,12 @@ end
 if text:match("^رفع ادمن بالكروب (%d+)$") and  is_creatorbasic(msg) then
 local apmd = {string.match(text, "^(رفع ادمن بالكروب) (%d+)$")}
 HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..apmd[2].."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=false")
-tsX000(apmd[2],msg,'※ تم رفعة ادمن   في الكروب ✓ 👨')
+tsX000(apmd[2],msg,'※ تم رفعة ادمن   في الكروب ✓ ')
 end
 if text:match("^رفع ادمن بالكروب$")  and is_creatorbasic(msg) and msg.reply_to_message_id_ then
 function promote_by_reply(extra, result, success)
 HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=false")
-tsX000("prore",msg,'※ تم رفعة ادمن   في الكروب ✓ 👨')
+tsX000("prore",msg,'※ تم رفعة ادمن   في الكروب ✓ ')
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
@@ -2980,7 +2980,7 @@ local apmd = {string.match(text, "^(رفع ادمن بالكروب) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
 HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=false")
-texts = '💁🏻‍♂️※ العضو ✓['..result.title_..'](t.me/'..(apmd[2] or 'tshaketeam')..')\n※ تم رفعة ادمن   في الكروب ✓ 👨🏻‍🚒'
+texts = '💁🏻‍العضو ✓['..result.title_..'](t.me/'..(apmd[2] or 'tshaketeam')..')\nتم رفعة ادمن   في الكروب ✓ '
 else
 texts = '✖┇خطاء'
 end
@@ -2992,12 +2992,12 @@ end
 if text:match("^تنزيل ادمن بالكروب (%d+)$") and  is_creatorbasic(msg) then
 local apmd = {string.match(text, "^(تنزيل ادمن بالكروب) (%d+)$")}
 HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..apmd[2].."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
-tsX000(apmd[2],msg,'※ تم تنزيله ادمن   في الكروب ✓ 👨')
+tsX000(apmd[2],msg,' تم تنزيله ادمن   في الكروب ✓ ')
 end
 if text:match("^تنزيل ادمن بالكروب$")  and is_creatorbasic(msg) and msg.reply_to_message_id_ then
 function promote_by_reply(extra, result, success)
 HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
-tsX000("prore",msg,'※ تم تنزيله ادمن   في الكروب ✓ 👨')
+tsX000("prore",msg,'تم تنزيله ادمن   في الكروب ✓ ')
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
@@ -3006,7 +3006,7 @@ local apmd = {string.match(text, "^(تنزيل ادمن بالكروب) @(.*)$")
 function promote_by_username(extra, result, success)
 if result.id_ then
 HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
-texts = '💁🏻‍♂️※ العضو ✓['..result.title_..'](t.me/'..(apmd[2] or 'tshaketeam')..')\n※ تم تنزيله ادمن   في الكروب ✓ 👨🏻‍🚒'
+texts = ' العضو ✓['..result.title_..'](t.me/'..(apmd[2] or 'tshaketeam')..')\n تم تنزيله ادمن   في الكروب ✓ '
 else
 texts = '✖┇خطاء'
 end
@@ -3018,11 +3018,11 @@ if (text and text == "رتبتي") then
 
 if is_sudo(msg) then
 
-t = database:get("tshake:name_sudo"..bot_id..msg.chat_id_)  or '.مطور البوت - '
+t = database:get("tshake:name_sudo"..bot_id..msg.chat_id_)  or 'مطور البوت '
 
 elseif is_creatorbasic(msg) then
 
-t = database:get("tshake:name_cre"..bot_id..msg.chat_id_) or '.منشئ اساسي -'
+t = database:get("tshake:name_cre"..bot_id..msg.chat_id_) or 'منشئ اساسي'
 
 elseif (database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_) and database:get("tshake:all_if:"..database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_) ..bot_id..msg.chat_id_)) then 
 
@@ -3030,7 +3030,7 @@ t = database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_)
 
 elseif is_creator(msg) then
 
-t = database:get("tshake:name_cre"..bot_id..msg.chat_id_) or '.منشئ -'
+t = database:get("tshake:name_cre"..bot_id..msg.chat_id_) or 'منشئ'
 
 elseif (database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_) and database:get("tshake:all_if:"..database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_) ..bot_id..msg.chat_id_)) then 
 
@@ -3038,19 +3038,19 @@ t = database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_)
 
 elseif is_owner(msg) then
 
-t = database:get("tshake:name_own"..bot_id..msg.chat_id_) or '.مدير - '
+t = database:get("tshake:name_own"..bot_id..msg.chat_id_) or '•مدير•'
 
 elseif is_mod(msg) then
 
-t = database:get("tshake:name_adm"..bot_id..msg.chat_id_) or ' .ادمن - '
+t = database:get("tshake:name_adm"..bot_id..msg.chat_id_) or '•ادمن•'
 
 elseif is_vip(msg) then
 
-t = database:get("tshake:name_vipp"..bot_id..msg.chat_id_) or '.عضو مميز -'
+t = database:get("tshake:name_vipp"..bot_id..msg.chat_id_) or '•عضو مميز•'
 
 else
 
-t = database:get("tshake:name_nk"..bot_id..msg.chat_id_) or '.عضو فقط -' 
+t = database:get("tshake:name_nk"..bot_id..msg.chat_id_) or '•عضو فقط•' 
 
 end
 
