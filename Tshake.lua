@@ -1575,6 +1575,19 @@ delete_msg(msg.chat_id_,{[0] = msg.id_})
 return "stop"
 end
 end
+if  msg.content_.ID == "MessageChatJoinByLink" then
+if database:get("lock_join:tshake"..msg.chat_id_..bot_id) then
+changeChatMemberStatus(msg.chat_id_, msg.sender_user_id_, "Kicked")
+delete_msg(msg.chat_id_,{[0] = msg.id_})
+return "stop"
+end
+end
+if msg.content_.ID == "MessageChatAddMembers"  then
+if database:get("lock_join:tshake"..msg.chat_id_..bot_id) then
+changeChatMemberStatus(msg.chat_id_, msg.content_.members_[0].id_, "Kicked")
+return "stop"
+end
+end
 if msg.forward_info_ then
 if msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost" then
 if database:get("lock_fwd:tshake"..msg.chat_id_..bot_id) then
