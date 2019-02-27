@@ -980,6 +980,15 @@ tsX000("lock",msg,"☑┇تم قفل تعديل الميديا")
 database:set("tshake:lo:edit:new:"..bot_id..msg.chat_id_,"ok")
 end
 end
+if (text == "فتح الدخول") then
+local tsX_o = database:get("lock_join:tshake"..msg.chat_id_..bot_id)
+if not tsX_o then
+tsX000("lock",msg,"※┇با.لفعل تم فتح الدخول للمجموعه ✓")
+else
+tsX000("lock",msg,"🔆※ تم فتح الدخول للمجموعه ✓")
+database:del("lock_join:tshake"..msg.chat_id_..bot_id,"ok")
+end
+end
 if (text == "قفل الكلايش") then
 local tsX_o = database:get("lock_word:tshake"..msg.chat_id_..bot_id)
 if tsX_o then
