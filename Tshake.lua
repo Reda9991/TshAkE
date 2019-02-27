@@ -970,6 +970,7 @@ else
 tsX000("lock",msg,"☑┇تم قفل الدخول للمجموعه")
 database:set("lock_join:tshake"..msg.chat_id_..bot_id,"ok")
 end
+end
 if (text == "قفل الشارحه") then
 local tsX_o = database:get("lock_sarha:tshake"..msg.chat_id_..bot_id)
 if tsX_o then
