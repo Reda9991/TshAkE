@@ -2115,6 +2115,24 @@ if (text == 'تعطيل التفعيل التلقائي') then
 database:del("add"..bot_id)
 send(msg.chat_id_, msg.id_, 1, "❎┇تم تعطيل التفعيل التلقائي", 1, 'html')
 end
+if text == 'توجيه للكل' and tonumber(msg.reply_to_message_id_) > 0  and tonumber(msg.sender_user_id_) == tonumber(sudo_add) then  
+function fwwdmsg(taha,storm,sorc)  
+local list = database:smembers('tshake:'..bot_id..'groups') 
+for k,v in pairs(list) do  
+tdcli_function ({
+ID = "ForwardMessages",
+chat_id_ = v,
+from_chat_id_ = msg.chat_id_,
+message_ids_ = {[0] = storm.id_},
+disable_notification_ = 1,
+from_background_ = 1},cb or dl_cb,cmd) 
+end
+local gps = database:scard('tshake:'..bot_id.."groups")  
+local text = '🚸 ❯❯ تم ارسال توجيه الى *{ '..gps..' }* مجموعات'  
+send(msg.chat_id_, msg.id_, 1, text, 1, 'md')  
+end  
+getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),fwwdmsg)  
+end
 if text:match("^(تعين عدد الاعضاء) (.*)$") then
 local kekoj = {string.match(text, "^(تعين عدد الاعضاء) (.*)$")}
 database:set("ts_a"..bot_id,kekoj[2])
