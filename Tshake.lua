@@ -2602,6 +2602,57 @@ chat_kick(msg.chat_id_, apba[2])
 tsX000(apba[2],msg,"☑┇تم حظره من المجموعه")
 end
 end
+if text:match("^رفع القيود$") and (is_mod(msg) or is_creatorbasic(msg)) and msg.reply_to_message_id_ ~= 0 then
+function clear_all1(extra, result, success)
+local hash =  'tshake:'..bot_id..'banned:'..msg.chat_id_
+local hash1 =  'tshake:'..bot_id..'banned:'..msg.chat_id_
+database:del(hash, result.sender_user_id_)
+database:del(hash1, result.sender_user_id_)
+tsX000("prore",msg,"☑┇تم تحريره من القيود")
+end
+getMessage(msg.chat_id_, msg.reply_to_message_id_,clear_all1)
+end
+if text:match("^رفع القيود @(.*)$") and (is_mod(msg) or is_creatorbasic(msg)) then
+local apba = {string.match(text, "^(رفع القيود) @(.*)$")}
+function clear_all(extra, result, success)
+if result.id_ then
+database:del('tshake:'..bot_id..'banned:'..msg.chat_id_, result.id_)
+database:del('tshake:'..bot_id..'muted:'..msg.chat_id_, result.id_)
+texts = '💁🏻‍♂️※ العضو ✓['..result.title_..'](t.me/'..(apba[2] or 'tshaketeam')..')\n☑┇تم تحريره من القيود'
+end
+send(msg.chat_id_, msg.id_, 1, texts, 1, 'md')
+end
+resolve_username(apba[2],clear_all)
+end
+if text:match("^رفع القيود (%d+)$") and (is_mod(msg) or is_creatorbasic(msg)) then
+local apba = {string.match(text, "^رفع القيود (%d+)$")}
+database:del('tshake:'..bot_id..'banned:'..msg.chat_id_, apba[2])
+database:del('tshake:'..bot_id..'muted:'..msg.chat_id_, apba[2])
+tsX000(apba[2],msg,"☑┇تم تحريره من القيود")
+end
+if text:match("^كشف القيود @(.*)$") then
+local ap = {string.match(text, "^(كشف القيود) @(.*)$")}
+function kewd_by_username(extra, result, success)
+if result.id_ then
+if database:sismember('tshake:'..bot_id..'gbanned:',result.id_) then
+kewd = 'محظور عام'
+elseif database:sismember('tshake:'..bot_id..'banned:'..msg.chat_id_,result.id_) then
+kewd = 'محظور'
+elseif database:sismember('tshake:'..bot_id..'muted:'..msg.chat_id_,result.id_) then
+kewd = 'مكتوم'
+elseif database:sismember('tshake:'..bot_id..'res'..msg.chat_id_,result.id_) then
+kewd = 'مقيد'
+else
+kewd = ' لا يوجد'
+end
+texts = "\n⛓ ※ القيود ✓*("..kewd..")*"
+else
+texts = ""..result.id_..""
+end
+send(msg.chat_id_, msg.id_, 1, texts, 1, 'md')
+end
+resolve_username(ap[2],kewd_by_username)
+end
 ----------------------------------------------unban--------------------------------------------
 if text:match("^الغاء حظر$") and (is_mod(msg) or is_creatorbasic(msg)) and msg.reply_to_message_id_ then
 function unban_by_reply(extra, result, success)
