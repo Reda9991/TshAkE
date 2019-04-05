@@ -2516,6 +2516,24 @@ send(msg.chat_id_, msg.id_, 1,  '☑┇ ارسل الان النص\n☑┇ يم�
 database:set("tsahke:set:id:"..bot_id..msg.chat_id_..msg.sender_user_id_,'tshake')
 return "tshake"
 end
+if (text and text == 'قفل تعديل المجموعه')  and  (is_creator(msg) or is_creatorbasic(msg)) then
+local tsX_o = database:get("group_edit:tshake"..msg.chat_id_..bot_id)
+if not tsX_o then
+database:set("group_edit:tshake"..msg.chat_id_..bot_id,true)
+tsX000("lock",msg,"📝تم قفل تعديل المجموعه ✓")
+else
+tsX000("lock",msg,"📝تم قفل تعديل المجموعه بالفعل✓")
+end
+end
+if (text and text == 'فتح تعديل المجموعه')  and  (is_creator(msg) or is_creatorbasic(msg)) then
+local tsX_o = database:get("group_edit:tshake"..msg.chat_id_..bot_id)
+if not tsX_o then
+tsX000("lock",msg,"📝 بالفعل فتح تعديل المجموعه ✓")
+else
+tsX000("lock",msg,"📝تم فتح تعديل المجموعه ✓")
+database:del("group_edit:tshake"..msg.chat_id_..bot_id)
+end
+end
 if text and (is_owner(msg) or is_creatorbasic(msg)) and database:get("tsahke:set:id:"..bot_id..msg.chat_id_..msg.sender_user_id_) then
 database:del("tsahke:set:id:"..bot_id..msg.chat_id_..msg.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1,  '☑┇ تم الحفض بنجاح', 1, 'md')
