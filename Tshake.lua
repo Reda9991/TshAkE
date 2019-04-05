@@ -1875,6 +1875,23 @@ database:del("thsake:gog"..bot_id)
 database:del('tshake:'..bot_id.."groups")
 end
 end
+if text and text == "تاك للكل" and (is_owner(msg) or is_creatorbasic(msg)) then
+function tag_all(t1, t2)
+local text = "  قائمه الاعضاء  ✓ ،\nꔹ┉♦️┉ ┉ ┉ ┉♦️┉ꔹ \n"
+i = 0
+for k, v in pairs(t2.members_) do
+i = i + 1
+local user_info = database:hgetall('tshake:'..bot_id..'user:'..v.user_id_)
+if user_info and user_info.username then
+local username = user_info.username
+text = text.."<b>|"..i.."|</b>~⪼(@"..username..")\n"
+end
+end
+send(msg.chat_id_, msg.id_, 1, text, 1, 'html')
+print(text)
+end
+tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID, offset_ = 0,limit_ = 200000},tag_all,nil)
+end
 if text:match("^روابط الكروبات$") then
 local gpss = database:smembers('tshake:'..bot_id.."groups") or 0
 text233 = '📊┇روابط الكروبات\n\n'
