@@ -7193,6 +7193,7 @@ local text =  [[
 🔐┇الانكليزية
 🔐┇الميديا
 🔐┇التكرار
+🔐┇تعديل الميديا
 🔐┇الكلايش
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ]]
@@ -7462,7 +7463,7 @@ local text =  [[
      
 <a href="https://telegram.me/disco3">Welcome to my source</a>
 ┉ ┉ ┉ ┉ ┉💠┉ ┉ ┉ ┉
-<a href="https://telegram.me/riida">DEV Ridha</a>
+<a href="https://telegram.me/riida">DEV Ridha Mohammed</a>
 <a href="https://telegram.me/cccci">DEV Taesser</a>
 <a href="https://t.me/city5_bot">Twasil</a>
 <a href="https://t.me/yytt_bot">YouTube BoT</a>
