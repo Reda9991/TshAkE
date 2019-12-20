@@ -4174,7 +4174,7 @@ database:set('tshake:'..bot_id..'flood:time:'..msg.chat_id_,floodt[2])
 send(msg.chat_id_, msg.id_, 1, '☑┇تم  وضع الزمن التكرار للعدد ~⪼  *{'..floodt[2]..'}*', 1, 'md')
 end
 end
-if text and text == "تاك للكل" then
+if text:match("^تاك للكل$") and (is_mod(msg) or is_creatorbasic(msg)) then
 function tag_all(t1, t2)
 local text = "┇قائمه الاعضاء   ،\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 i = 0
