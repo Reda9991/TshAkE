@@ -5969,7 +5969,7 @@ delete_msg(msg.chat_id_, {[0] = msg.reply_to_message_id_})
 delete_msg(msg.chat_id_, {[0] = msg.id_})
 end
 ----------------------------------------------------------------------------------------------
-if text and text:match('^تنظيف (%d+)$')  then  
+if text and text:match('^ (%d+)$') and (is_mod(msg) or is_creatorbasic(msg)) then  
 local num = tonumber(text:match('^تنظيف (%d+)$')) 
 if num > 1000 then 
 send(msg.chat_id_, msg.id_, 1, ' تستطيح المسح فقط (1000) رساله \n', 1, 'md') 
