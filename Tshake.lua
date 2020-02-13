@@ -2702,13 +2702,6 @@ local apmd = {string.match(text, "^(تنزيل ادمن) (%d+)$")}
 database:srem(hash, apmd[2])
 tsX000(apmd[2],msg,"*✔¦ تم تنزيله من ادمنيه البوت*")
 end
-if (text:match("^رفع عضو مميز$") or text:match("^رفع مميز$"))  and (is_owner(msg) or is_creatorbasic(msg)) and msg.reply_to_message_id_ then
-local res = (keko_get_user(msg.sender_user_id_) or "true")
-if res then
-if res ~= "true" then
-send(msg.chat_id_, msg.id_, 1, '• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• ['..(database:get('keko:ch_username'..bot_id) or "@disco3")..'] ⚜️', 1, 'md')
-return false end
-end
 if text and is_malik(msg) then
 if text == 'المنشئين الاساسين' and is_malik(msg) then
 local list = database:smembers('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
@@ -2960,6 +2953,13 @@ text = "❗️¦ لا يوجد منشئين  "
 end
 send(msg.chat_id_, msg.id_, 1, text, 1, 'html')
 end
+end
+if (text:match("^رفع عضو مميز$") or text:match("^رفع مميز$"))  and (is_owner(msg) or is_creatorbasic(msg)) and msg.reply_to_message_id_ then
+local res = (keko_get_user(msg.sender_user_id_) or "true")
+if res then
+if res ~= "true" then
+send(msg.chat_id_, msg.id_, 1, '• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• ['..(database:get('keko:ch_username'..bot_id) or "@disco3")..'] ⚜️', 1, 'md')
+return false end
 end
 function promote_by_reply(extra, result, success)
 local hash =  'tshake:'..bot_id..'vipgp:'..msg.chat_id_
