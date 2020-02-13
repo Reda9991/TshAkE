@@ -1,5 +1,5 @@
-#!/usr/bin/env bas
-echo -e "\e[33mجاري تشغيل بوتك"\e[0m"
+#!/usr/bin/env bash
+echo -e "\e[33mrunning"\e[0m"
 echo -e "\e[33m''    #\\ ---------------    //#  ''\e[0m"
 echo -e "\e[33m"   #  \\   ---------      //  #  ''\e[0m"
 echo -e "\e[33m"   #    \\   -------    //    # '' \e[0m"
