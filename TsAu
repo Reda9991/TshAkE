@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+echo -e "\e[33m"_____________________"\e[0m"
+echo -e "\e[33m''    #\\ ---------------    //#  ''\e[0m"
+echo -e "\e[33m"   #  \\   ---------      //  #  ''\e[0m"
+echo -e "\e[33m"   #    \\   -------    //    # '' \e[0m"
+echo -e "\e[33m"   #     \\   -----   //      #  ''\e[0m"
+echo -e "\e[33m"   #       \\  ---- //        #  ''\e[0m"
+echo -e "\e[33m"   #         \\ - //          # ''\e[0m"
+echo -e "\e[33m"   #           \\//           # ''\e[0m"
+echo -e "\e[33m"     \_______/\_______/ "\e[0m"
+echo -e "\e[33m"     **  MONSTER **" \e[0m"
+echo -e "\e[33m"     ** @riida **"\e[0m"
+while(true) do
+lua start.lua 
+done
