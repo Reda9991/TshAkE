@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo -e "\e[33mrunning"\e[0m"
+
 echo -e "\e[33m''    #\\ ---------------    //#  ''\e[0m"
 echo -e "\e[33m"   #  \\   ---------      //  #  ''\e[0m"
 echo -e "\e[33m"   #    \\   -------    //    # '' \e[0m"
