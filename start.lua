@@ -17,9 +17,9 @@ local getme = "https://api.telegram.org/bot" ..tokenCk.. '/getme'
 local req = https.request(getme)
 local data = JSON:decode(req)
 if data.ok == true then
-print("\27[31m✓ DONE\27[m \27[1;34m»»Now Send Sudo ID««\27[m")
+print("\27[31m✓ DONE saved\27[m \27[1;34m»»Now Send ID««\27[m")
 local sudo_send  = io.read()
-print("\27[31m✓ DONE\27[m")
+print("\27[31m✓ DONE your bot is run\27[m")
 local tsheke_file = io.open("sudo.lua", 'w')
 tsheke_file:write("token = '" ..tokenCk.."'\n\nsudo_add = "..sudo_send.."" )
 tsheke_file:close()
@@ -47,7 +47,7 @@ local data = JSON:decode(req)
 if data.ok == true then
 os.execute('./tg -s ./Tshake.lua $@ --bot='..token)
 else
-print("\27[31mTOKEN Incorrect , Send Right TOKEN««\27[m")
+print("\27[31mIncorrect , Send Right TOKEN««\27[m")
 local token_send = io.read()
 chack(token_send)
 end
