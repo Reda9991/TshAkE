@@ -6269,6 +6269,7 @@ database:set("tshake:edit:text:su:new:"..bot_id..msg.chat_id_..database:get("tsa
 database:set("tshake:edit:text:su:new2:"..bot_id..msg.chat_id_..text,database:get("tsahke:new:msg:"..msg.chat_id_..msg.sender_user_id_..bot_id))
 database:del("tsahke:new:msg:"..msg.chat_id_..msg.sender_user_id_..bot_id)
 end
+end
 if text and text:match("^مسح امر (.*)") then 
 local t = {string.match(text, "^مسح امر (.*)$")}
 local klma = database:get("tshake:edit:text:su:new:"..bot_id..msg.chat_id_..t[1])
@@ -6320,7 +6321,6 @@ send(msg.chat_id_, msg.id_, 1, '✔¦تم حذف صلاحيه بنجاح', 1, 'm
 database:del("tshake:all_if:"..text..bot_id..msg.chat_id_)
 database:srem('tshake:'..bot_id..'tshakenwe:slahea:'..msg.chat_id_,text)
 database:del("tsahke:is_del_sl:"..bot_id..msg.chat_id_..msg.sender_user_id_)
-end 
 end
 if (text and text == "اضف صلاحيه") and (is_owner(msg) or is_creatorbasic(msg)) then 
 send(msg.chat_id_, msg.id_, 1, '✔¦ارسال الان اسم الصلاحيه', 1, 'md')
