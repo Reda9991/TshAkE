@@ -6269,7 +6269,6 @@ database:set("tshake:edit:text:su:new:"..bot_id..msg.chat_id_..database:get("tsa
 database:set("tshake:edit:text:su:new2:"..bot_id..msg.chat_id_..text,database:get("tsahke:new:msg:"..msg.chat_id_..msg.sender_user_id_..bot_id))
 database:del("tsahke:new:msg:"..msg.chat_id_..msg.sender_user_id_..bot_id)
 end
-end
 if text and text:match("^مسح امر (.*)") then 
 local t = {string.match(text, "^مسح امر (.*)$")}
 local klma = database:get("tshake:edit:text:su:new:"..bot_id..msg.chat_id_..t[1])
@@ -6280,6 +6279,7 @@ database:srem('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_,klma)
 send(msg.chat_id_, msg.id_, 1, "☑┇ تم المسح بنجاح", 1, 'md')
 else
 send(msg.chat_id_, msg.id_, 1, "☑┇ عذرآ لا يوجد امر بهاذا الاسم", 1, 'md')
+end
 end
 if text == 'الاوامر المضافه' then
 local list = database:smembers('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_)
