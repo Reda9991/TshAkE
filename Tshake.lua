@@ -4303,6 +4303,28 @@ database:set('tshake:'..bot_id..'flood:time:'..msg.chat_id_,floodt[2])
 send(msg.chat_id_, msg.id_, 1, '✔¦تم  وضع الزمن التكرار للعدد ~⪼  *{'..floodt[2]..'}*', 1, 'md')
 end
 end
+if text:match("^تاك للكل (.*)$")  and (is_mod(msg) or is_creatorbasic(msg)) then
+local txt = {string.match(text, "^(تاك للكل) (.*)$")}
+function ridha(f1, f2)
+local text = " 🎤"..txt[2].." \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+local id = msg.id_
+local msgs = {[0] = id}
+local chat = msg.chat_id_
+i = 0
+for k, v in pairs(f2.members_) do
+i = i + 1
+local user_info = database:hgetall('tshake:'..bot_id..'user:'..v.user_id_)
+if user_info and user_info.username then
+local username = user_info.username
+text = text.."<b> "..i.." 》</b> { @"..username.." }\n"
+end
+end 
+send(msg.chat_id_, msg.id_, 1, text, 1, 'html')
+print(text)
+end
+tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID, offset_ = 0,limit_ = 200000},ridha,nil)
+end
+---------------------------- اخمط يحلوو 
 if text:match("^تاك للكل$") and (is_mod(msg) or is_creatorbasic(msg)) then
 function tag_all(t1, t2)
 local text = "¦قائمه الاعضاء   ،\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
