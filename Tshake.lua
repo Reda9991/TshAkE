@@ -6307,9 +6307,9 @@ database:del("tshake:edit:text:su:new2:"..bot_id..msg.chat_id_..klma)
 database:del("tshake:edit:text:su:new:"..bot_id..msg.chat_id_..v)
 end
 end
-end
 database:del('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, 1,"📛┇تم مسح الاوامر جميعها", 'md')
+end
 end
 if (text and text == "مسح صلاحيه") and (is_owner(msg) or is_creatorbasic(msg)) then
 send(msg.chat_id_, msg.id_, 1, '✔¦ارسال الان اسم الصلاحيه', 1, 'md')
