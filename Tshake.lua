@@ -6298,6 +6298,7 @@ end
 send(msg.chat_id_, msg.id_, 1,t, 'html')
 end
 end
+end
 if text == 'مسح الاوامر المضافه' then 
 local list = database:smembers('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_)
 for k,v in pairs(list) do
@@ -6309,7 +6310,6 @@ end
 end
 database:del('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, 1,"📛┇تم مسح الاوامر جميعها", 'md')
-end
 end
 if (text and text == "مسح صلاحيه") and (is_owner(msg) or is_creatorbasic(msg)) then
 send(msg.chat_id_, msg.id_, 1, '✔¦ارسال الان اسم الصلاحيه', 1, 'md')
