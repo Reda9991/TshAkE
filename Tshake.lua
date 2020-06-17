@@ -1,6 +1,6 @@
 --[[
 BY:RIDHA MOHAMMED
-@database
+@riida
            CH > @disco3
 --]]
 serpent = require('serpent')
@@ -2664,16 +2664,11 @@ database:sadd('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_, apmd[2])
 tsX000(apmd[2],msg,"*✔¦تم رفعة منشئ اساسي  في البوت*")
 end
 if text:match("^تنزيل منشئ اساسي$") and msg.reply_to_message_id_ then
-local res = https.request('https://database22.ibuser.xyz/ridha?id='..msg.sender_user_id_..'')
- 
+local res = (get_username_ridha(msg.sender_user_id_) or "true")
+----------
 if res then
-if res == 'false' then
-send(msg.chat_id_, msg.id_, 1,'\n• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• @disco3 🤖️\n', 1, 'html')   
-return false end
-if res == 'kicked' then
- hash =  'tshake:'..bot_id..'gbanned:'
-database:sadd(hash, msg.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بوتات السورس \n راسل مطورين السورس لمعرفه سبب الحظر @disco3', 1, 'html')   
+if res ~= "true" then
+send(msg.chat_id_, msg.id_, 1, '• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• ['..(database:get('ridha:ch:url:'..bot_id) or "@disco3")..'] 🤖️', 1, 'md')
 return false end
 end
 function promote_by_reply(extra, result, success)
@@ -2683,16 +2678,11 @@ end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
 if text:match("^تنزيل منشئ اساسي @(.*)$") then
-local res = https.request('https://database22.ibuser.xyz/ridha?id='..msg.sender_user_id_..'')
- 
+local res = (get_username_ridha(msg.sender_user_id_) or "true")
+----------
 if res then
-if res == 'false' then
-send(msg.chat_id_, msg.id_, 1,'\n• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• @disco3 🤖️\n', 1, 'html')   
-return false end
-if res == 'kicked' then
- hash =  'tshake:'..bot_id..'gbanned:'
-database:sadd(hash, msg.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بوتات السورس \n راسل مطورين السورس لمعرفه سبب الحظر @disco3', 1, 'html')   
+if res ~= "true" then
+send(msg.chat_id_, msg.id_, 1, '• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• ['..(database:get('ridha:ch:url:'..bot_id) or "@disco3")..'] 🤖️', 1, 'md')
 return false end
 end
 local apmd = {string.match(text, "^(تنزيل منشئ اساسي) @(.*)$")}
@@ -2708,16 +2698,11 @@ end
 resolve_username(apmd[2],promote_by_username)
 end
 if text:match("^تنزيل منشئ اساسي (%d+)$") then
-local res = https.request('https://database22.ibuser.xyz/ridha?id='..msg.sender_user_id_..'')
- 
+local res = (get_username_ridha(msg.sender_user_id_) or "true")
+----------
 if res then
-if res == 'false' then
-send(msg.chat_id_, msg.id_, 1,'\n• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• @disco3 🤖️\n', 1, 'html')   
-return false end
-if res == 'kicked' then
- hash =  'tshake:'..bot_id..'gbanned:'
-database:sadd(hash, msg.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بوتات السورس \n راسل مطورين السورس لمعرفه سبب الحظر @disco3', 1, 'html')   
+if res ~= "true" then
+send(msg.chat_id_, msg.id_, 1, '• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• ['..(database:get('ridha:ch:url:'..bot_id) or "@disco3")..'] 🤖️', 1, 'md')
 return false end
 end
 local apmd = {string.match(text, "^(تنزيل منشئ اساسي) (%d+)$")}
@@ -3262,13 +3247,13 @@ database:srem('tshake:'..bot_id..'creator:'..msg.chat_id_, result.sender_user_id
 database:srem('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_,result.sender_user_id_)
 database:srem('tshake:'..bot_id..'malik:'..msg.chat_id_,result.sender_user_id_)
 ------------
-if RemBot(msg.sender_user_id_,msg.chat_id_) == 'malik1' then
-database:srem('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
-database:srem('tshake:'..bot_id..'creator:'..msg.chat_id_, result.sender_user_id_)
-database:srem('tshake:'..bot_id..'owners:'..msg.chat_id_, result.sender_user_id_)
+elseif RemBot(msg.sender_user_id_,msg.chat_id_) == 'malik1' then
 database:srem('tshake:'..bot_id..'mods:'..msg.chat_id_, result.sender_user_id_)
 database:srem('tshake:'..bot_id..'vipgp:'..msg.chat_id_, result.sender_user_id_)
----------
+database:srem('tshake:'..bot_id..'owners:'..msg.chat_id_, result.sender_user_id_)
+database:srem('tshake:'..bot_id..'creator:'..msg.chat_id_, result.sender_user_id_)
+database:srem('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_,result.sender_user_id_)
+--------- hiiiiiiii
 elseif RemBot(msg.sender_user_id_,msg.chat_id_) == 'creato1' then
 database:srem('tshake:'..bot_id..'mods:'..msg.chat_id_, result.sender_user_id_)
 database:srem('tshake:'..bot_id..'vipgp:'..msg.chat_id_, result.sender_user_id_)
@@ -3283,9 +3268,7 @@ database:srem('tshake:'..bot_id..'owners:'..msg.chat_id_, result.sender_user_id_
 elseif RemBot(msg.sender_user_id_,msg.chat_id_) == 'owner' then
 database:srem('tshake:'..bot_id..'mods:'..msg.chat_id_, result.sender_user_id_)
 database:srem('tshake:'..bot_id..'vipgp:'..msg.chat_id_, result.sender_user_id_)
-end
-end
-end
+end end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end 
 ----------------------------------------------unban--------------------------------------------
