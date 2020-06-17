@@ -131,14 +131,6 @@ local keko_add_sudo = redis:get('tshake:'..bot_id..'sudoo'..user_id..'')
 if keko_add_sudo then var = true end
 return var
 end
-function is_creatorbasicid(user_id,chat_id)
-local var = false
-local creatorbasic = database:sismember('tshake:'..bot_id..'creatorbasic:'..chat_id, user_id) 
-local admin = database:sismember('tshake:'..bot_id..'admins:', user_id)
-if creatorbasic then var = true end 
-if admin then var = true end
-return var
-end
 function is_creator(msg)
 user_id = msg.sender_user_id_
 chat_id = msg.chat_id_
