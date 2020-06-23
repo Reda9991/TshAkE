@@ -6386,6 +6386,11 @@ database:set('tshake:'..bot_id..'OFF:CH',true)
 return false 
 end end
 ----------------
+if (text and text == "مسح صلاحيه") and (is_owner(msg) or is_creatorbasic(msg)) then
+send(msg.chat_id_, msg.id_, 1, '✔¦ارسال الان اسم الصلاحيه', 1, 'md')
+database:set("tsahke:is_del_sl:"..bot_id..msg.chat_id_..msg.sender_user_id_,"ok")
+return "Tshake"
+end
 if (text and database:get("tsahke:is_del_sl:"..bot_id..msg.chat_id_..msg.sender_user_id_)) then 
 send(msg.chat_id_, msg.id_, 1, '✔¦تم حذف صلاحيه بنجاح', 1, 'md')
 database:del("tshake:all_if:"..text..bot_id..msg.chat_id_)
