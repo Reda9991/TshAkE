@@ -7792,7 +7792,7 @@ local text =  [[
      
 <a href="https://telegram.me/disco3">مرحبا بك في سورس مونستر V2</a>
 ┉ ┉ ┉ ┉ ┉💠┉ ┉ ┉ ┉
-<a href="https://telegram.me/database">الســورس تابع ل Ridha Mohammed</a>
+<a href="https://telegram.me/riida">الســورس تابع ل Ridha Mohammed</a>
 <a href="https://t.me/city5_bot">تواصل</a>
 <a href="https://t.me/yytt_bot">بوت يوتيوب</a>
 <a href="https://t.me/disco3">قناة المطــور</a>
