@@ -1,7 +1,9 @@
 --[[
-BY:RIDHA MOHAMMED
-@riida
-           CH > @disco3
+‌‌‎ __  __  ___  _   _ ____ _____ _____ ____  
+|  \/  |/ _ \| \ | / ___|_   _| ____|  _ \ 
+| |\/| | | | |  \| \___ \ | | |  _| | |_) |
+| |  | | |_| | |\  |___) || | | |___|  _ < 
+|_|  |_|\___/|_| \_|____/ |_| |_____|_| \_\
 --]]
 serpent = require('serpent')
 serp = require 'serpent'.block
@@ -34,7 +36,11 @@ for i,v in pairs(files_tshake) do
 print(Blue..i..red..' - \27[10;33m'..v..',\27[m')  end
 print(red.."\nList files \n\n\n"..reset)
 io.popen("mkdir files_tshake")
-print(Blue.."\n by Ridha mohammed ^_^  \n\n\n"..reset)
+print(Blue.."\n ‌‌‎ __  __  ___  _   _ ____ _____ _____ ____  
+|  \/  |/ _ \| \ | / ___|_   _| ____|  _ \ 
+| |\/| | | | |  \| \___ \ | | |  _| | |_) |
+| |  | | |_| | |\  |___) || | | |___|  _ < 
+|_|  |_|\___/|_| \_|____/ |_| |_____|_| \_\ \n\n\n"..reset)
 os.execute('cd .. &&  rm -rf .telegram-cli')
 os.execute('cd .. &&  rm -fr .telegram-cli')
 function get_username_ridha( user )
